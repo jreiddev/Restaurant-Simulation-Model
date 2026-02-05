@@ -1,0 +1,80 @@
+\section{System Description}
+
+\begin{itemize}
+\item System Components and Dynamics:
+    \begin {itemize}
+    
+    \item Customers:
+        \begin{itemize}
+            \item Project Focus: Arrival time, order, dining time, patience level for late orders
+            \item Behavior: Arrive at random times, wait in queue, place order, eat food, leave. (Customers also pay, but the server’s tips will not be a part of this model)
+        \end{itemize}
+        
+    \item Employees:
+         \begin{itemize}
+            \item Project Focus: Position (cook, server), task speed, task complete, task completion error, shift duration.
+            \item Behavior: Can make mistakes slowing down speed of service, wasting ingredients, decreasing customer patience levels, increasing queue time.
+            \item Servers: Greet customers, take orders, get drinks, refill drinks, deliver food, check on customers, deliver check once customers finish eating, bus tables.
+            \item Cooks: Prepare ingredients, cook food, allocate time to larger/smaller orders
+        \end{itemize}
+    \item Interactions:
+        \begin{itemize}
+            \item Customers form queues for limited servers/seats
+            \item Employee availability affects speed of operation/service time/customer wait time
+            \item Ingredient availability affects whether orders can be fulfilled, affecting customer patience levels. 
+            \item Increase customer demand puts pressure on employees and inventory
+            \item Decrease customer demand causes servers to be slowly “cut” removing them from the  day of operations
+        \end{itemize}
+    
+    \end{itemize}   
+
+\item Core Models and Algorithms:
+        \begin{itemize}
+            \item Customer Queue and Service Time:
+            \begin{itemize}
+                \item This model focuses on the time it takes for the customer to enter, be sat, order food, have food be delivered, eat, and leave. 
+                \item Purpose: This will measure our modeled customers' wait times and determine the length of time they remain in the queue. This will also impact staffing levels, distributed work per employee, and customer satisfaction/patience.
+            \end{itemize}
+            \item Customer Patience and Abandonment:
+            \begin{itemize}
+                \item This model focuses on the patience threshold that will determine whether or not a customer remains within the system/queue or decides to abandon model out of frustration. 
+                \item As waiting time exceeds the determined average rate, patience level diminishes, and once it hits zero, the customer will decide to abandon the system.
+                \item Purpose: This model will reflect real world frustration felt by potential customers. The model creates a direct link between all service delays to lost profit, and will create a basis needed to evaluate the tradeoff between increasing staffing cost and increasing customer retention. 
+            \end{itemize}
+            \item Discrete-Event Simulation
+            \begin{itemize}
+                \item The model will operate as a discrete-event simulation, where state changes occur at specific events instead of having time flow at a constant rate. 
+                \item Events:
+                    \begin{itemize}
+                        
+                        \item Customer arrives
+                        \item Customer sat at table
+                        \item Customer decides on meal
+                        \item Server takes the customers' order
+                        \item Kitchen staff successfully complete the order
+                        \item Server delivers food to the customer
+                        \item Customer finishes eating
+                        \item Customer pays and leaves
+                        \item Employee shifts start/end
+                    \end{itemize}
+                \item System State Variables: 
+                    \begin{itemize}
+                    \item Number of customers remaining in queue
+                    \item Available servers and cooks
+                    \item Ingredient inventory available
+                    \item Average customer satisfaction score
+                    \item Employee utilization rate
+                    \end{itemize}
+                
+            \end{itemize}
+            \item Inventory Consumption and Waste versus Inventory Cost
+            \begin{itemize}
+                \item The ingredients used will be reflected in the model as  consumed resources. This will tie each ingredient to all orders being completed. 
+                \begin{itemize}
+                    \item Each order available to customers consumes a predetermined quantity of available ingredients
+                    \item Employee errors lead to ingredients being wasted
+                    \item Inventory shortages can delay or cancel orders, decreasing customer satisfaction levels
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+\end{itemize}
