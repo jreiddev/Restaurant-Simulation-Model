@@ -15,5 +15,7 @@ The core logic has been implemented and reflects event based architecture for th
 
 What remains is to change the hard coded numbers into variables that relate to outside factors, ie employee utilization -> employee stress levels -> error rates -> customer satisfaction -> abandonment rates -> profit loss, and a proper UI and data export for the user. 
 
+Cleaned up the gitlink to more refelct proper project architecture, deleted old M1 files that were individually uploaded and are now collected under Latex M1
+
 
 
