@@ -9,3 +9,11 @@ and customer patience and queue abandonment. This model will NOT be focusing on 
 week or month, employee satisfaction, employee wages, customer satisfaction with the meals taste, or random events such
 as customer celebrations, special menu options that draw in customers (i.e. Happy Hour, Ladies Night, etc), or competing
 restaurants.
+
+2/26/26 Update:
+The core logic has been implemented and reflects event based architecture for the project. It now utilizes specified equations to relate the general concepts/data gathered mentioned in M1.
+
+What remains is to change the hard coded numbers into variables that relate to outside factors, ie employee utilization -> employee stress levels -> error rates -> customer satisfaction -> abandonment rates -> profit loss, and a proper UI and data export for the user. 
+
+
+
